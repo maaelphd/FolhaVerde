@@ -1,0 +1,54 @@
+body {
+	font-family: 'Roboto Mono', monospace;
+}
+
+.w3-content.w3-section
+{
+	align-items: center;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+}
+
+.CartItensTable {
+	width: 80%;;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.CartItensTable td {
+	border-bottom: 1px dotted black;
+}
+
+.MyCartHeaderContent {
+	width: 80%;;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.CartItensTotalTable {
+	width: 20%;
+	margin-top: 5%;
+	text-align: left;
+	border-radius: 50;
+	font-size: 20px;
+	background-color: #e8e8e8;
+}
+
+.CartItensTotalTable td {
+	border-bottom: 1px dotted black;
+}		
+	
+.divCartItensTotalTable{
+	width: 80%;;
+	margin: 0 auto;
+}
+
+.buttonsDiv {
+	width: 80%;;
+	margin: 0 auto;
+}
+
+.buttonsDiv button{
+	font-size: 30px;
+}

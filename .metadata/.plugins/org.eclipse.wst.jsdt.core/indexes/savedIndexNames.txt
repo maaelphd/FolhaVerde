@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\Devs\Java\FolhaVerdeWorkSpace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+629085700.index
+3719310464.index
+1847604291.index
+3012716789.index
+3794452795.index
+3354239695.index
+2417396524.index

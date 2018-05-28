@@ -1,0 +1,21 @@
+.w3-content.w3-section
+{
+	align-items: center;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+}
+
+.indexPresentationTable {
+	width: 80%;;
+	margin: 0 auto;
+}
+
+.txtHistory {
+	font-family: inherit;
+	font-size: 12px;	
+}
+
+.IndexSlideShow {
+	width: 100%;
+}
