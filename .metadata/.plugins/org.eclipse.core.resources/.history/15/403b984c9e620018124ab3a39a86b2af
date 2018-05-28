@@ -1,0 +1,36 @@
+body {
+	font-family: 'Roboto Mono', monospace;
+}
+
+.w3-content.w3-section
+{
+	align-items: center;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+}
+
+.divPaymentChoiceTable,
+.divPaymentDataTable {
+	width: 80%;;
+	margin: 0 auto;
+}
+
+.PaymentsChoiceTable,
+.PaymentsDataTable {
+	width: 80%;;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.PaymentHeaderContent {
+	width: 80%;;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.tdInpUserName input, .tdInpUserLastName, .tdInpUserCEPCode,
+.tdInpUserAdress, .tdInpUserNumberAdress, .tdInpUserComplementAdress,
+.tdInpUserNeighborhood, .tdInpUserCity, .tdInpUserState {
+	width: 5%;	
+} 

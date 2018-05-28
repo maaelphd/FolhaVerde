@@ -51,23 +51,32 @@
 						</th>
 					</tr>
 					<tr>
-						<td>
+						<td class="tdInpUserName">
+							<input type="text" id="inpUserName" placeholder="Nome De Usuário" name="data[userName]">
 						</td>
-						<td>
+						<td class="tdInpUserLastName">
+							<input type="text" id="inpUserLastName" placeholder="Sobrenome" name="data[userLastName]">
 						</td>
-						<td>
+						<td class="tdInpUserCEPCode">
+							<input type="text" min="" id="inpUserCEPCode" placeholder="00000-000" name="data[userCEPCode]">						
 						</td>
-						<td>
+						<td class="tdInpUserAdress">
+							<input type="text" min="" id="inpUserAdress" placeholder="Avenida Vital Brasil" name="data[userAdress]">
 						</td>
-						<td>
+						<td class="tdInpUserNumberAdress">
+							<input type="number" min="1" id="inpUserNumberAdress" value="1" name="data[userNumberAdress]">
 						</td>
-						<td>
+						<td class="tdInpUserComplementAdress">
+							<input type="text" min="" id="inpUserComplementAdress" placeholder="Apt 100" name="data[userComplementAdress]" >
 						</td>
-						<td>
+						<td class="tdInpUserNeighborhood">
+							<input type="text" min="" id="inpUserNeighborhood" placeholder="Butantã" name="data[userNeighborhood]" >
 						</td>
-						<td>
+						<td class="tdInpUserCity">
+							<input type="text" min="" id="inpUserCity" placeholder="São Paulo" name="data[inpUserCity]" >
 						</td>
-						<td>
+						<td class="tdInpUserState">
+						 	<input type="text" min="" id="inpUserState" placeholder="SP" name="data[inpUserState]" >
 						</td>
 					</tr>
 				</table>

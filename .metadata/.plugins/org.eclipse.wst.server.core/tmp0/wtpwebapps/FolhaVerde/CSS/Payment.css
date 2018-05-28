@@ -18,7 +18,7 @@ body {
 
 .PaymentsChoiceTable,
 .PaymentsDataTable {
-	width: 80%;;
+	width: 100%;;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -27,4 +27,22 @@ body {
 	width: 80%;;
 	margin: 0 auto;
 	text-align: left;
+}
+
+.tdInpUserName input, .tdInpUserLastName input,
+.tdInpUserAdress input,
+.tdInpUserNeighborhood input, .tdInpUserCity input {
+	width: 98%;	
+} 
+
+.tdInpUserCEPCode input, .tdInpUserComplementAdress input {
+	width: 55%;
+}
+
+.tdInpUserNumberAdress input {
+	width: 38%;
+}
+
+.tdInpUserState input {
+	width: 20%;
 }
