@@ -30,19 +30,43 @@ body {
 }
 
 .tdInpUserName input, .tdInpUserLastName input,
-.tdInpUserAdress input,
-.tdInpUserNeighborhood input, .tdInpUserCity input {
-	width: 98%;	
+.tdInpUserAdress input {
+	width: 95%;	
 } 
 
-.tdInpUserCEPCode input, .tdInpUserComplementAdress input {
-	width: 55%;
+.tdInpUserCEPCode input {
+	width: 18%;
 }
 
-.tdInpUserNumberAdress input {
-	width: 38%;
+.PaymentsChoiceTable {
+	background-color: #f0f0f0;
 }
 
-.tdInpUserState input {
-	width: 20%;
+.PaymentsChoiceTable {
+	margin: 5% auto 0 auto;
+}
+
+.paymenTableTitle {
+	text-align: right;
+}
+
+.paymenTableContent{
+	text-align: left;	
+}
+
+buttonsDiv {
+	width: 80%;;
+	margin: 0 auto;
+	padding-top: 2%;
+}
+
+.buttonsDiv button{
+	background-color: #8FB171; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

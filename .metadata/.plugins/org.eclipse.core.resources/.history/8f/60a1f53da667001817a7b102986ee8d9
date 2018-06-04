@@ -1,0 +1,79 @@
+package dao;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.mysql.jdbc.Statement;
+
+import factory.ConnectionFactory;
+import to.ProductTO;
+import to.TeamTO;
+import util.FormatDate;
+
+public class ProductDAO {
+	
+	public ArrayList<TeamTO> listTeam() throws IOException {
+
+		ProductTO productTO;
+		ArrayList<TeamTO> arrayTeamTO = new ArrayList<>();	
+		String strDate = "";
+		FormatDate formatDate = new FormatDate();
+		
+		String sqlSelect = "SELECT equipe_id, equipe_nome, equipe_proj_id, equipe_perm_aces_escopo, equipe_perm_inc_escopo, equipe_perm_alt_escopo, equipe_perm_com_escopo, equipe_perm_aces_equipe, "
+				+ "equipe_perm_inc_equipe, equipe_perm_alt_equipe, equipe_perm_excl_equipe, equipe_perm_aces_eap, equipe_perm_inc_eap, equipe_perm_alt_eap, equipe_perm_excl_eap, equipe_perm_com_eap, "
+				+ "equipe_perm_aces_canvas, equipe_perm_inc_canvas, equipe_perm_alt_canvas, equipe_perm_excl_canvas, equipe_perm_com_canvas, equipe_perm_aces_relat, equipe_perm_exp_relat, equipe_excluido, "
+				+ "equipe_atualizacao from betaproject.tb_equipe where equipe_excluido like 0;";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			try (ResultSet rs = stm.executeQuery();) {				
+				while (rs.next()) {
+					teamTO = new TeamTO();
+					teamTO.setTeamId(rs.getInt("equipe_id"));
+					teamTO.setTeamName(rs.getString("equipe_nome"));
+					teamTO.setProjectId(rs.getInt("equipe_proj_id"));
+					teamTO.setPermAcesScope(rs.getInt("equipe_perm_aces_escopo"));
+					teamTO.setPermIncScope(rs.getInt("equipe_perm_inc_escopo"));
+					teamTO.setPermAltScope(rs.getInt("equipe_perm_alt_escopo"));
+					teamTO.setPermComScope(rs.getInt("equipe_perm_com_escopo"));
+					teamTO.setPermAcesTeam(rs.getInt("equipe_perm_aces_equipe"));
+					teamTO.setPermIncTeam(rs.getInt("equipe_perm_inc_equipe"));
+					teamTO.setPermAltTeam(rs.getInt("equipe_perm_alt_equipe"));
+					teamTO.setPermDelTeam(rs.getInt("equipe_perm_excl_equipe"));
+					teamTO.setPermAcesWbs(rs.getInt("equipe_perm_aces_eap"));
+					teamTO.setPermIncWbs(rs.getInt("equipe_perm_inc_eap"));
+					teamTO.setPermAltWbs(rs.getInt("equipe_perm_alt_eap"));
+					teamTO.setPermDelWbs(rs.getInt("equipe_perm_excl_eap"));
+					teamTO.setPermComWbs(rs.getInt("equipe_perm_com_eap"));
+					teamTO.setPermAcesMpCanvas(rs.getInt("equipe_perm_aces_canvas"));
+					teamTO.setPermIncMpCanvas(rs.getInt("equipe_perm_inc_canvas"));
+					teamTO.setPermAltMpCanvas(rs.getInt("equipe_perm_alt_canvas"));
+					teamTO.setPermDelMpCanvas(rs.getInt("equipe_perm_excl_canvas"));
+					teamTO.setPermComMpCanvas(rs.getInt("equipe_perm_com_canvas"));
+					teamTO.setPermAcesReports(rs.getInt("equipe_perm_aces_relat"));
+					teamTO.setPermExpReport(rs.getInt("equipe_perm_exp_relat"));
+					strDate = rs.getString("equipe_atualizacao");
+					teamTO.setUpdateDate(formatDate.changeDateType(strDate));
+					arrayTeamTO.add(teamTO);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new IOException(e);
+			}
+
+			stm.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new IOException(e);
+		}
+
+		return arrayTeamTO;
+	}
+
+}

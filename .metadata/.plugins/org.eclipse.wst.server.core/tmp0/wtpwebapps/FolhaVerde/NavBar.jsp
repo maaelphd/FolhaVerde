@@ -14,26 +14,37 @@
 			<tr>
 				<td>
 					<div class="LogoImg">
-						<a href="index.jsp"><img src="${pageContext.request.contextPath}/imgs/LOGO.png"> <span class="NomeEmpresaLogo"> Folha Verde </span></a>
+						<a href="Controller.do?command=ViewIndex" class="indexLink"><img src="${pageContext.request.contextPath}/imgs/LOGO.png"> <span class="NomeEmpresaLogo"> Folha Verde </span></a>
 					</div>				
 				</td>
 				<td id="PersonIcoCol">
 					<i class="material-icons" id="PersonIco">person</i>
 				</td>
 				<td id="shoppingCartIcoCol">
-					<span class="ItensCountNumber">0</span><i class="material-icons" id="shoppingCartIco">shopping_cart</i>
+					<span class="ItensCountNumber">
+					<c:if test="${not empty productsCartTotal}">
+						${productsCartTotal}
+					</c:if>
+					</span><i class="material-icons" id="shoppingCartIco">shopping_cart</i>
 				</td>
 			</tr>
 		</table>		
 	</div>
-
-	<nav>
-		<ul class="horizontal">
-			<li><a href="#home" class="SaladTab">Saladas</a></li>
-			<li><a href="#news" class="PlateTab">Pratos</a></li>
-			<li><a href="#contact" class="DessertTab">Sobremesas</a></li>		
-		</ul>
-	</nav>
+	
+	<form action="Controller.do" method="post" role="form">
+		<nav>
+			
+				<ul class="horizontal">
+					<li><a href="Controller.do?command=ViewSalads" class="SaladTab" type="submit">Saladas</a></li>
+					<li><a href="Controller.do?command=ViewPlates" class="PlateTab" type="submit">Pratos</a></li>
+					<li><a href="Controller.do?command=ViewDesserts" class="DessertTab" type="submit">Sobremesas</a></li>		
+				</ul>
+	
+		</nav>
+		
+		<input id="cartSelectedItensId" name="data[cartSelectedItens]">
+		<input id="cartItensTotalId" name="data[cartItensTotal]">
+	</form>
 	
 	<!-- JQUERY & BOOTSTRAP  -->
 		
@@ -45,14 +56,47 @@
 	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 
-	<script>
+<script type="text/javascript">
+
 	$(document).ready(function () {
-				
-	  	$(".nav a").on("click", function(){		  	
+
+
+		var arrayItensCartId = ["0"];
+	    $('#cartSelectedItensId').text(arrayItensCartId); // Adiciona aoinput o valor do array (codigo dos itens)
+		$('#cartSelectedItensId').val(arrayItensCartId); // Adiciona aoinput o valor do array (codigo dos itens)
+		$('#cartItensTotalId').text(0); // Salva no input a quantidade de itens ja passada no carrinho 
+		$('#cartItensTotalId').val(0); // Salva no input a quantidade de itens ja passada no carrinho
+
+	  	$(".nav a").on("click", function(){
 	  	   $(".nav").find(".active").removeClass("active");
 	  	   $(this).parent().addClass("active");
 	  	});
-	  	
+
+		// Adiciona ao carrinho
+	  	$(".productData").on("click", function(event){
+
+	  		var selectedItemId = $(this).data("prodructid");
+
+	  		var cartItensQtd = $('.ItensCountNumber').text();
+
+	  		cartItensQtd = parseInt(cartItensQtd) + 1;
+
+	  		$('.ItensCountNumber').text(cartItensQtd);
+
+			$('#cartItensTotalId').text(cartItensQtd); // Salva no input a quantidade de itens ja passada no carrinho 
+			$('#cartItensTotalId').val(cartItensQtd); // Salva no input a quantidade de itens ja passada no carrinho
+
+	  		addCartFunction(selectedItemId);
+		});
+
+		function addCartFunction(selectedItemId) {
+
+			arrayItensCartId.push(selectedItemId);
+		    alert( "TEST: " +  arrayItensCartId);
+		    $('#cartSelectedItensId').text(arrayItensCartId); // Adiciona aoinput o valor do array (codigo dos itens)
+			$('#cartSelectedItensId').val(arrayItensCartId); // Adiciona aoinput o valor do array (codigo dos itens)			
+		}
+
 	});
 	//# sourceURL=pen.js
-	</script>
+</script>

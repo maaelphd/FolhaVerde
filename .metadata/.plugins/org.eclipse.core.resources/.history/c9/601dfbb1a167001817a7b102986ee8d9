@@ -1,0 +1,85 @@
+package command.wbs;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import command.Command;
+import model.MemberTeam;
+import model.Wbs;
+import to.MemberTeamTO;
+import to.WbsTO;
+
+public class ViewPlates implements Command {
+
+	@Override
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		Wbs wbsModel = new Wbs();
+		MemberTeam equipeMembro = new MemberTeam();
+		// Line 01
+		ArrayList<WbsTO> arrayLine1WbsTO	= null;
+		// Line 02
+		ArrayList<WbsTO> arrayLine2WbsTO	= null;
+		// Line 03
+		ArrayList<WbsTO> arrayLine3WbsTO	= null;
+		// Line 04
+		ArrayList<WbsTO> arrayLine4WbsTO	= null;
+		// Line 05
+		ArrayList<WbsTO> arrayLine5WbsTO	= null;
+		// Line 06		
+		ArrayList<WbsTO> arrayLine6WbsTO	= null;
+		// Line 07		
+		ArrayList<WbsTO> arrayLine7WbsTO	= null;
+		// Line 08
+		ArrayList<WbsTO> arrayLine8WbsTO	= null;
+		// Line 09		
+		ArrayList<WbsTO> arrayLine9WbsTO	= null;
+		// Line 10 
+		ArrayList<WbsTO> arrayLine10WbsTO	= null;
+		// Line 11 
+		ArrayList<WbsTO> arrayLine11WbsTO	= null;
+		
+		ArrayList<MemberTeamTO> arrayEquipeMembroTO = null;
+
+		HttpSession session = request.getSession();		
+
+		arrayLine1WbsTO = wbsModel.listWbs(1);
+		arrayLine2WbsTO = wbsModel.listWbs(2);
+		arrayLine3WbsTO = wbsModel.listWbs(3);
+		arrayLine4WbsTO = wbsModel.listWbs(4);
+		arrayLine5WbsTO = wbsModel.listWbs(5);
+		arrayLine6WbsTO = wbsModel.listWbs(6);
+		arrayLine7WbsTO = wbsModel.listWbs(7);
+		arrayLine8WbsTO = wbsModel.listWbs(8);
+		arrayLine9WbsTO = wbsModel.listWbs(9);
+		arrayLine10WbsTO = wbsModel.listWbs(10);
+		arrayLine11WbsTO = wbsModel.listWbs(11);
+		
+		arrayEquipeMembroTO = equipeMembro.listMemberTeam();
+
+		session.setAttribute("wbsLine1List", arrayLine1WbsTO);
+		session.setAttribute("wbsLine2List", arrayLine2WbsTO);
+		session.setAttribute("wbsLine3List", arrayLine3WbsTO);
+		session.setAttribute("wbsLine4List", arrayLine4WbsTO);
+		session.setAttribute("wbsLine5List", arrayLine5WbsTO);
+		session.setAttribute("wbsLine6List", arrayLine6WbsTO);
+		session.setAttribute("wbsLine7List", arrayLine7WbsTO);
+		session.setAttribute("wbsLine8List", arrayLine8WbsTO);
+		session.setAttribute("wbsLine9List", arrayLine9WbsTO);
+		session.setAttribute("wbsLine10List", arrayLine10WbsTO);
+		session.setAttribute("wbsLine11List", arrayLine11WbsTO);
+		
+		session.setAttribute("listEquipMember", arrayEquipeMembroTO);
+			
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WBS.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	
+}

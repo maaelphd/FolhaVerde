@@ -1,0 +1,52 @@
+package dao;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.mysql.jdbc.Statement;
+
+import factory.ConnectionFactory;
+import to.ProductTO;
+
+public class ProductDAO {
+	
+	public ArrayList<ProductTO> listProduct() throws IOException {
+
+		ProductTO productTO;
+		ArrayList<ProductTO> arrayProductTO = new ArrayList<>();	
+		String strDate = "";
+		
+		String sqlSelect = "SELECT product_id, product_name, product_price, product_path_image from folhaverde.tb_product;";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			try (ResultSet rs = stm.executeQuery();) {				
+				while (rs.next()) {
+					productTO = new ProductTO();
+					productTO.setProdructId(rs.getInt("equipe_id"));
+					productTO.setProductName(rs.getString("equipe_nome"));
+					productTO.setProdutPrice(rs.getInt("equipe_proj_id"));
+					productTO.setPathImage(rs.getInt("equipe_perm_aces_escopo"));					
+					arrayProductTO.add(productTO);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new IOException(e);
+			}
+
+			stm.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new IOException(e);
+		}
+
+		return arrayProductTO;
+	}
+
+}

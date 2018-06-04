@@ -18,40 +18,41 @@
 		<div id="divPageContent">	
 			
 			<table class="SaladItensTable">
-
-				<tr class="SaladDescription">
-					<td>
-						<span class="Salad1ImageText">Opção de Salada 1</span>
-					</td>
-					<td>
-						<span class="Salad2ImageText">Opção de Salada 2</span>
-					</td>					
-					<td>
-						<span class="Salad3ImageText">Opção de Salada 3</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<img class="Salad1Image" src="${pageContext.request.contextPath}/imgs/SALADA1.jpg" style="width:100%">
-					</td>
-					<td>
-						<img class="Salad2Image" src="${pageContext.request.contextPath}/imgs/SALADA2.jpg" style="width:100%">
-					</td>					
-					<td>
-						<img class="Salad3Image" src="${pageContext.request.contextPath}/imgs/SALADA3.jpg" style="width:100%">
-					</td>
-				</tr>
-				<tr class="SaladDescription">
-					<td>				
-						<i class="material-icons addShoppingCart">add_shopping_cart</i>
-					</td>
-					<td>
-						<i class="material-icons addShoppingCart">add_shopping_cart</i>
-					</td>					
-					<td>
-						<i class="material-icons addShoppingCart">add_shopping_cart</i>
-					</td>
-				</tr>
+			
+				<c:if test="${not empty productList}">
+					<tr class="SaladDescription">
+						<c:forEach var="productListItens" items="${productList}" varStatus="loop">
+							<td class="SaladImageText">
+								<span class="Plate1ImageText">${productListItens.productName}</span>
+							</td>
+						</c:forEach>
+					</tr>
+					<tr>
+						<c:forEach var="productListItens" items="${productList}" varStatus="loop">
+							<td>
+								<img class="Plate1Image" src="${pageContext.request.contextPath}${productListItens.productPathImage}" style="width:100%">
+							</td>
+						</c:forEach>
+					</tr>
+					<tr>
+						<c:forEach var="productListItens" items="${productList}" varStatus="loop">
+							<td class="priceProduct">
+								<h3>Preço: R$ ${productListItens.produtPrice}</h3>
+							</td>
+						</c:forEach>					
+					</tr>
+					<tr class="SaladDescription">
+						<c:forEach var="productListItens" items="${productList}" varStatus="loop">
+							<td>				
+								<a class="productData" data-prodructId="${productListItens.prodructId}" data-productName="${productListItens.productName}"
+									data-produtPrice="${productListItens.produtPrice}" data-productPathImage="${productListItens.productPathImage}"
+									data-productType="${productListItens.productType}">
+									<i class="material-icons addShoppingCart" id="1">add_shopping_cart</i>
+								</a>
+							</td>
+						</c:forEach>					
+					</tr>
+				</c:if>
 			</table>
 		</div>
 	</div>		
@@ -62,16 +63,6 @@
 	$(document).ready(function () {		
 		
 		$('.SaladTab').addClass("active"); // Deixa menu marcado na side bar
-
-		// Adiciona ao carrinho
-	  	$(".addShoppingCart").on("click", function(){
-
-	  		var cartItensQtd = $('.ItensCountNumber').text();
-
-	  		cartItensQtd = parseInt(cartItensQtd) + 1;
-
-	  		$('.ItensCountNumber').text(cartItensQtd);
-		});
 	
 	});	
 </script>

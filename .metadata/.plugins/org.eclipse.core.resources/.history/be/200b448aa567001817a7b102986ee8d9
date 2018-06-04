@@ -1,0 +1,56 @@
+package model;
+
+import to.ProductTO;
+
+public class ProductModel {	
+	
+	private int prodructId;
+	private String productName;
+	private double produtPrice;
+	private String pathImage;
+	
+	public ProductModel(int prodructId, String productName, double produtPrice, String pathImage) {
+		super();
+		this.prodructId = prodructId;
+		this.productName = productName;
+		this.produtPrice = produtPrice;
+		this.pathImage = pathImage;
+	}
+
+	public ProductModel() {
+		super();
+	}
+	
+	public int getProdructId() {
+		return prodructId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public double getProdutPrice() {
+		return produtPrice;
+	}
+	public String getPathImage() {
+		return pathImage;
+	}
+	public void setProdructId(int prodructId) {
+		this.prodructId = prodructId;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public void setProdutPrice(double produtPrice) {
+		this.produtPrice = produtPrice;
+	}
+	public void setPathImage(String pathImage) {
+		this.pathImage = pathImage;
+	}
+	
+	public ProductTO getProductTO() {
+
+		ProductTO productTO = new ProductTO(); 
+		
+		return Prod;		
+	}
+
+}

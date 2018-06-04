@@ -1,0 +1,18 @@
+.SaladItensTable {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.Salad1ImageText{
+	font-family: inherit;
+	font-size: 20px;	
+}
+
+.SaladDescription {
+	text-align: center;
+	
+}
+
+.material-icons.addShoppingCart {
+	font-size: 60px;
+}

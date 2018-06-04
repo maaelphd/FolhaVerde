@@ -1,0 +1,85 @@
+nav {
+	width: 80%;
+	text-align: center;
+	margin: 0% auto;	
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8FB171;
+}
+
+li {
+    float: left;
+    width: 33.33333%;    
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a.SaladTab,
+li a.PlateTab,
+li a.DessertTab {
+    font-size: 30px;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #badd9b;
+}
+
+a:link {
+	color: inherit;
+	text-decoration: none;
+}
+
+.LogoHeader
+{
+	width: 80%;
+	height: 110px;
+	text-align: left;
+	margin: 0% auto;
+	font-family: 'Indie Flower', cursive;
+}
+
+.LogoImg img
+{
+	width: 5%;
+	height: 5%;
+}
+
+.LogoImg {
+	height: 100%;
+}
+
+.NomeEmpresaLogo {
+	font-size: 100px;
+	font-family: 
+}
+
+#shoppingCartIco,
+#PersonIco {
+	font-size: 70px;
+}
+
+.TopBarTable{
+	width: 100%;	
+}
+
+.ItensCountNumber {
+	font-size: 60px;
+	color: #ff0000;
+	font-family: 'Indie Flower', cursive;	
+}
+
+.SaladTab.active, .PlateTab.active, .DessertTab.active{
+	background-color: #badd9b;
+}

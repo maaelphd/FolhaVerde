@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+	 <meta charset="UTF-8">
+
+ 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/Pages.css"/>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/NavBar.css"/>	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/RobotoFonts.css" type="text/css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/IndieFlower.css" type="text/css">
+
+	<div class="LogoHeader">
+		<table class="w3-table TopBarTable">
+			<tr>
+				<td>
+					<div class="LogoImg">
+						<a href="index.jsp"><img src="${pageContext.request.contextPath}/imgs/LOGO.png"> <span class="NomeEmpresaLogo"> Folha Verde </span></a>
+					</div>				
+				</td>
+				<td id="PersonIcoCol">
+					<i class="material-icons" id="PersonIco">person</i>
+				</td>
+				<td id="shoppingCartIcoCol">
+					<span class="ItensCountNumber">0</span><i class="material-icons" id="shoppingCartIco">shopping_cart</i>
+				</td>
+			</tr>
+		</table>		
+	</div>
+
+	<nav>
+		<ul class="horizontal">
+			<li><a href="Controller.do?command=ViewPlates" class="SaladTab">Saladas</a></li>
+			<li><a href="Controller.do?command=ViewPlates" class="PlateTab">Pratos</a></li>
+			<li><a href="#contact" class="DessertTab">Sobremesas</a></li>		
+		</ul>
+	</nav>
+	
+	<!-- JQUERY & BOOTSTRAP  -->
+		
+	<!-- jQuery Reference -->
+	<!-- <script src="${pageContext.request.contextPath}/jquery-ui/jquery-ui.min.js"></script> -->
+	<script src="${pageContext.request.contextPath}/jquery-ui/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+	
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+
+	<script>
+	$(document).ready(function () {
+				
+	  	$(".nav a").on("click", function(){		  	
+	  	   $(".nav").find(".active").removeClass("active");
+	  	   $(this).parent().addClass("active");
+	  	});
+	  	
+	});
+	//# sourceURL=pen.js
+	</script>

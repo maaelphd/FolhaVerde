@@ -1,0 +1,38 @@
+package model;
+
+public class ProductModel {	
+	private int prodructId;
+	private String productName;
+	private double produtPrice;
+	private String pathImage;
+	
+	public ProductModel() {
+		super();
+	}
+	
+	public int getProdructId() {
+		return prodructId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public double getProdutPrice() {
+		return produtPrice;
+	}
+	public String getPathImage() {
+		return pathImage;
+	}
+	public void setProdructId(int prodructId) {
+		this.prodructId = prodructId;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public void setProdutPrice(double produtPrice) {
+		this.produtPrice = produtPrice;
+	}
+	public void setPathImage(String pathImage) {
+		this.pathImage = pathImage;
+	}
+
+}

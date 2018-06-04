@@ -3,9 +3,8 @@
 	margin: 0 auto;
 }
 
-.Plate1ImageText
-.Plate2ImageText,
-.Plate3ImageText {
+.PlateImageText,
+.priceProduct {
 	font-family: inherit;
 	font-size: 20px;	
 }
@@ -17,4 +16,8 @@
 
 .material-icons.addShoppingCart {
 	font-size: 60px;
+}
+
+.priceProduct {
+	text-align: center;
 }
