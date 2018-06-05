@@ -2,31 +2,47 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="ItensCountNumber" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="orderProductModel" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="ItensCountNumber"/>
-			<item value="cartItensTotal"/>
-			<item value="productid"/>
-			<item value="prodructid"/>
-			<item value="arrayItensCartId"/>
-			<item value="addShoppingCart"/>
-			<item value="productList"/>
-			<item value="LogoImg"/>
-			<item value="divPaymentDataTable"/>
-			<item value="text"/>
+			<item value="orderProductModel"/>
+			<item value="`"/>
+			<item value="ProductType"/>
+			<item value="productType"/>
+			<item value="ProductName"/>
+			<item value="productName"/>
+			<item value="ProdructId"/>
+			<item value="prodructId"/>
+			<item value="cartSelectedItens"/>
+			<item value="productsIds"/>
+			<item value="arrayProductsIds"/>
+			<item value="arrayProduct"/>
+			<item value="cartSelectedItens "/>
+			<item value="ccSelectedCardFlag"/>
+			<item value="cardNumber"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value="OrderId"/>
+			<item value="orderId"/>
+			<item value="ProductId"/>
+			<item value="productId"/>
+			<item value="OrderProdructId"/>
+			<item value="orderProdructId"/>
+			<item value="UserLastName"/>
+			<item value="userLastName"/>
+			<item value="UserName"/>
+			<item value="userName"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="284" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="549" key="DIALOG_X_ORIGIN"/>
-		<item value="117" key="DIALOG_Y_ORIGIN"/>
+		<item value="427" key="DIALOG_X_ORIGIN"/>
+		<item value="291" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

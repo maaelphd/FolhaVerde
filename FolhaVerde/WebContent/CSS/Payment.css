@@ -70,3 +70,12 @@ buttonsDiv {
     display: inline-block;
     font-size: 16px;
 }
+
+#ccSelectedCardFlagId,
+#ccSelectedMonthId,
+#ccSelectedYearId,
+#ccSelectedInstallmentId {
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+}

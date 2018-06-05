@@ -101,3 +101,22 @@ a.indexLink:active {
 	width: 0px;
 	height: 0px;
 }
+
+.horizontal button{
+	background-color: #8FB171; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 42px;
+    width: 100%;
+}
+
+#finishOrder {
+	background-color: transparent;
+    border: none;    
+    text-decoration: none;
+    font-size: 42px;
+}

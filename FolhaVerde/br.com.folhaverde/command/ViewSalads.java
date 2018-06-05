@@ -19,22 +19,24 @@ public class ViewSalads implements Command {
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int productsCartTotal = 0;
-		String productsIds = "";
+		String productsIds = "0";
 
 		ProductModel productModel = new ProductModel();
 		ArrayList<ProductTO> arrayProduct	= null;
 		
 		try {
 			
-			productsCartTotal	= Integer.parseInt(request.getParameter("data[cartItensTotal]"));
-			productsIds			= request.getParameter("data[cartSelectedItens]");
+			if(request.getParameter("data[cartItensTotal]") != null) {
+				productsCartTotal	= Integer.parseInt(request.getParameter("data[cartItensTotal]"));
+			}
+			if(request.getParameter("data[cartSelectedItens]") != null) {
+				productsIds			= request.getParameter("data[cartSelectedItens]");
+			}		
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
-		System.out.println("productsCartTotal: "+ productsCartTotal);
 		
 		HttpSession session = request.getSession();		
 

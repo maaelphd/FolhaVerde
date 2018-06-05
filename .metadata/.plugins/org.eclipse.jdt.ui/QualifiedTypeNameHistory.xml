@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="dao.ProductDAO"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="to.ProductTO"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="com.sun.javafx.scene.traversal.ParentTraversalEngine"/>
+<fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+<fullyQualifiedTypeName name="dao.ProductDAO"/>
+<fullyQualifiedTypeName name="to.ProductTO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="model.ProductModel"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Statement"/>
+<fullyQualifiedTypeName name="to.OrderTO"/>
+<fullyQualifiedTypeName name="model.OrderModel"/>
+<fullyQualifiedTypeName name="dao.OrderProductDAO"/>
+<fullyQualifiedTypeName name="to.OrderProductTO"/>
+<fullyQualifiedTypeName name="model.OrderProductModel"/>
 </qualifiedTypeNameHistroy>

@@ -71,6 +71,16 @@ public class ProductModel {
 		return arrayProductTO;
 	}
 	
+	public ProductTO selectProduct(int productId) throws IOException {
+		
+		ProductDAO productDAO = new ProductDAO();
+		ProductTO productTO = new ProductTO();
+		
+		productTO = productDAO.selectProduct(productId);
+		
+		return productTO;
+	}
+	
 	public ProductTO getProductTO() {
 
 		ProductTO productTO = new ProductTO();

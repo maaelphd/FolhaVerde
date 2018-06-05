@@ -9,41 +9,46 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/RobotoFonts.css" type="text/css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/IndieFlower.css" type="text/css">
 
-	<div class="LogoHeader">
-		<table class="w3-table TopBarTable">
-			<tr>
-				<td>
-					<div class="LogoImg">
-						<a href="Controller.do?command=ViewIndex" class="indexLink"><img src="${pageContext.request.contextPath}/imgs/LOGO.png"> <span class="NomeEmpresaLogo"> Folha Verde </span></a>
-					</div>				
-				</td>
-				<td id="PersonIcoCol">
-					<i class="material-icons" id="PersonIco">person</i>
-				</td>
-				<td id="shoppingCartIcoCol">
-					<span class="ItensCountNumber">
-					<c:if test="${not empty productsCartTotal}">
-						${productsCartTotal}
-					</c:if>
-					</span><i class="material-icons" id="shoppingCartIco">shopping_cart</i>
-				</td>
-			</tr>
-		</table>		
-	</div>
-	
 	<form action="Controller.do" method="post" role="form">
-		<nav>
-			
-				<ul class="horizontal">
-					<li><a href="Controller.do?command=ViewSalads" class="SaladTab" type="submit">Saladas</a></li>
-					<li><a href="Controller.do?command=ViewPlates" class="PlateTab" type="submit">Pratos</a></li>
-					<li><a href="Controller.do?command=ViewDesserts" class="DessertTab" type="submit">Sobremesas</a></li>		
-				</ul>
+
+		<div class="LogoHeader">
+			<table class="w3-table TopBarTable">
+				<tr>
+					<td>
+						<div class="LogoImg">
+							<a href="Controller.do?command=ViewIndex" class="indexLink"><img src="${pageContext.request.contextPath}/imgs/LOGO.png"> <span class="NomeEmpresaLogo"> Folha Verde </span></a>
+						</div>				
+					</td>
+					<td id="PersonIcoCol">
+						<i class="material-icons" id="PersonIco">person</i>
+					</td>
+					<td id="shoppingCartIcoCol">
+						<span class="ItensCountNumber">
+							<c:if test="${not empty productsCartTotal}">
+								${productsCartTotal}
+							</c:if>
+						</span>
+						<button id="finishOrder" type="submit" name="command" value="FinishOrder"><i class="material-icons" id="shoppingCartIco">shopping_cart</i></button>						
+					</td>
+				</tr>
+			</table>		
+		</div>
 	
+	
+		<nav>			
+			<ul class="horizontal">
+				<li><button class="SaladTab" type="submit" name="command" value="ViewSalads">Saladas</button></li>
+				<li><button class="PlateTab" type="submit" name="command" value="ViewPlates">Pratos</button></li>
+				<li><button class="DessertTab" type="submit" name="command" value="ViewDesserts">Sobremesas</button></li>		
+			</ul>	
 		</nav>
 		
-		<input id="cartSelectedItensId" name="data[cartSelectedItens]">
-		<input id="cartItensTotalId" name="data[cartItensTotal]">
+		<c:if test="${not empty productsCartTotal}">		
+			<input id="cartItensTotalId" name="data[cartItensTotal]" value="${productsCartTotal}">
+		</c:if>
+		<c:if test="${not empty productsIds}">		
+			<input id="cartSelectedItensId" name="data[cartSelectedItens]" value="${productsIds}">
+		</c:if>		
 	</form>
 	
 	<!-- JQUERY & BOOTSTRAP  -->
@@ -60,12 +65,7 @@
 
 	$(document).ready(function () {
 
-
-		var arrayItensCartId = ["0"];
-	    $('#cartSelectedItensId').text(arrayItensCartId); // Adiciona aoinput o valor do array (codigo dos itens)
-		$('#cartSelectedItensId').val(arrayItensCartId); // Adiciona aoinput o valor do array (codigo dos itens)
-		$('#cartItensTotalId').text(0); // Salva no input a quantidade de itens ja passada no carrinho 
-		$('#cartItensTotalId').val(0); // Salva no input a quantidade de itens ja passada no carrinho
+		var arrayItensCartId = [$('#cartSelectedItensId').val()];
 
 	  	$(".nav a").on("click", function(){
 	  	   $(".nav").find(".active").removeClass("active");
@@ -92,11 +92,10 @@
 		function addCartFunction(selectedItemId) {
 
 			arrayItensCartId.push(selectedItemId);
-		    alert( "TEST: " +  arrayItensCartId);
+		    
 		    $('#cartSelectedItensId').text(arrayItensCartId); // Adiciona aoinput o valor do array (codigo dos itens)
 			$('#cartSelectedItensId').val(arrayItensCartId); // Adiciona aoinput o valor do array (codigo dos itens)			
 		}
-
 	});
 	//# sourceURL=pen.js
 </script>

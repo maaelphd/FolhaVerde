@@ -46,5 +46,37 @@ public class ProductDAO {
 
 		return arrayProductTO;
 	}
+	
+	public ProductTO selectProduct(int productId) throws IOException {
+
+		ProductTO productTO = new ProductTO();;
+					
+		String sqlSelect = "SELECT id_product, product_name, product_price, product_product_path_image, product_type from folhaverde.tb_product where id_product = ?;";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			stm.setInt(1, productId);			
+			try (ResultSet rs = stm.executeQuery();) {				
+				while (rs.next()) {
+					productTO.setProdructId(rs.getInt("id_product"));
+					productTO.setProductName(rs.getString("product_name"));
+					productTO.setProdutPrice(rs.getDouble("product_price"));
+					productTO.setProductPathImage(rs.getString("product_product_path_image"));
+					productTO.setProductType(rs.getInt("product_type"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new IOException(e);
+			}
+			stm.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new IOException(e);
+		}
+
+		return productTO;
+	}
 
 }

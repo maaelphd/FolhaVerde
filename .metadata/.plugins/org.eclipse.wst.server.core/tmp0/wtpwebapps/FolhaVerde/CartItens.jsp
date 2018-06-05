@@ -37,40 +37,27 @@
 						<span class="CartItensTableHeader">Total</span>
 					</th>			
 				</tr>
-				<tr>
-					<td class="itemDescription">
-						Descrição do Item
-					</td>
-					<td class="itemDelivery">
-						A Calcular
-					</td>
-					<td class="itemPrice">
-						10.00
-					</td>
-					<td class="itemQuantity">
-						1
-					</td>
-					<td class="itemTotal">
-						10.00
-					</td>				
-				<tr>
-				<tr>
-					<td class="itemDescription">
-						Descrição do Item
-					</td>
-					<td class="itemDelivery">
-						A Calcular
-					</td>
-					<td class="itemPrice">
-						10.00
-					</td>
-					<td class="itemQuantity">
-						1
-					</td>
-					<td class="itemTotal">
-						10.00
-					</td>				
-				<tr>
+				<c:if test="${not empty productList}">
+					<c:forEach var="productListItens" items="${productList}" varStatus="loop">
+						<tr>
+							<td class="itemDescription">
+								${productListItens.productName}
+							</td>
+							<td class="itemDelivery">
+								A Calcular
+							</td>
+							<td class="itemPrice">
+								${productListItens.produtPrice}
+							</td>
+							<td class="itemQuantity">
+								1
+							</td>
+							<td class="itemTotal">
+								${productListItens.produtPrice}
+							</td>				
+						<tr>
+					</c:forEach>
+				</c:if>
 			</table>
 			<div class="divCartItensTotalTable" align="right">
 				<table class="w3-table CartItensTotalTable">
@@ -79,7 +66,9 @@
 							SubTotal
 						</td>
 						<td>
-							1000.00
+							<c:if test="${not empty totalOrder}">
+								<span class="subtotalOrder">${totalOrder}</span>
+							</c:if>
 						</td>
 					</tr>
 					<tr>
@@ -87,7 +76,7 @@
 							Entrega
 						</td>
 						<td>
-							10.00
+							<span class="deliveryPriceOrder">10.00</span>
 						</td>
 					</tr>
 					<tr>
@@ -95,7 +84,9 @@
 							TOTAL
 						</td>
 						<td>
-							1010.00
+							<c:if test="${not empty totalOrder}">
+								<span class="TotalOrder"><c:out value="${totalOrder + 10}" /></span>
+							</c:if>							
 						</td>
 					</tr>				
 					
@@ -103,9 +94,19 @@
 			</div>
 		</div>
 		
-		<div class="btn buttonsDiv" align="right">
-			<button type="button" autofocus>Finalizar Pedido</button>
-		</div>
+		<form action="Controller.do" method="post" role="form">
+		
+			<c:if test="${not empty productsCartTotal}">		
+				<input id="cartItensTotalId" name="data[cartItensTotal]" value="${productsCartTotal}">
+			</c:if>
+			<c:if test="${not empty productsIds}">		
+				<input id="cartSelectedItensId" name="data[cartSelectedItens]" value="${productsIds}">
+			</c:if>		
+		
+			<div class="btn buttonsDiv" align="right">
+				<button type="submit" name="command" value="Payment" autofocus>Finalizar Pedido</button>
+			</div>
+		</form>
 	</div>
 </body>
 <footer></footer>

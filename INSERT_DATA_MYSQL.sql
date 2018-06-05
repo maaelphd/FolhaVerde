@@ -114,3 +114,7 @@ VALUES
 
 select * from tb_product;
 SELECT id_product, product_name, product_price, product_product_path_image, product_type from folhaverde.tb_product where product_type = '0';
+
+select * from tb_order;
+select * from tb_order_products;
+

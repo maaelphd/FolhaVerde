@@ -24,8 +24,6 @@ public class ServletController extends HttpServlet {
 			response.setCharacterEncoding("UTF-8");
 			Command comando = (Command) Class.forName("command." + request.getParameter("command")).newInstance();
 
-			System.out.println("1: "+ request.getParameter("data[cartItensTotal]"));
-			
 			comando.executa(request, response);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			e.printStackTrace();
@@ -36,12 +34,10 @@ public class ServletController extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doExecute(request, response);
-		System.out.println("2: "+ request.getParameter("data[cartItensTotal]"));
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doExecute(request, response);
-		System.out.println("3: "+ request.getParameter("data[cartItensTotal]"));
 	}
 
 }
